@@ -6,13 +6,11 @@ import MemoryIcon from '@material-ui/icons/Memory'
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
 import SvgIcon from '@material-ui/core/SvgIcon'
-import GridList from '@material-ui/core/GridList'
-import GridListTile from '@material-ui/core/GridListTile'
 
 function GitLabIcon(props) {
   return (
     <SvgIcon {...props}>
-      <path fill-rule="evenodd" d="M14.381966,9 L17.1055728,3.5527864 C17.510563,2.74280594 18.6976082,2.84525834 18.9578263,3.71265211 L21.9578263,13.7126521 C22.0764694,14.1081293 21.9398565,14.5358621 21.6139406,14.7893522 L12.6139406,21.7893522 C12.2528301,22.0702159 11.7471699,22.0702159 11.3860594,21.7893522 L2.38605939,14.7893522 C2.06014352,14.5358621 1.92353056,14.1081293 2.04217371,13.7126521 L5.04217371,3.71265211 C5.30239185,2.84525834 6.48943696,2.74280594 6.89442719,3.5527864 L9.61803399,9 L14.381966,9 Z M17.7667436,6.7025808 L15.8944272,10.4472136 C15.7250352,10.7859976 15.3787721,11 15,11 L9,11 C8.62122794,11 8.27496482,10.7859976 8.10557281,10.4472136 L6.23325641,6.7025808 L4.15466686,13.6312126 L12,19.7331384 L19.8453331,13.6312126 L17.7667436,6.7025808 Z"/>
+      <path fillRule="evenodd" d="M14.381966,9 L17.1055728,3.5527864 C17.510563,2.74280594 18.6976082,2.84525834 18.9578263,3.71265211 L21.9578263,13.7126521 C22.0764694,14.1081293 21.9398565,14.5358621 21.6139406,14.7893522 L12.6139406,21.7893522 C12.2528301,22.0702159 11.7471699,22.0702159 11.3860594,21.7893522 L2.38605939,14.7893522 C2.06014352,14.5358621 1.92353056,14.1081293 2.04217371,13.7126521 L5.04217371,3.71265211 C5.30239185,2.84525834 6.48943696,2.74280594 6.89442719,3.5527864 L9.61803399,9 L14.381966,9 Z M17.7667436,6.7025808 L15.8944272,10.4472136 C15.7250352,10.7859976 15.3787721,11 15,11 L9,11 C8.62122794,11 8.27496482,10.7859976 8.10557281,10.4472136 L6.23325641,6.7025808 L4.15466686,13.6312126 L12,19.7331384 L19.8453331,13.6312126 L17.7667436,6.7025808 Z"/>
     </SvgIcon>
   )
 }
@@ -208,7 +206,15 @@ const useStyles = makeStyles((theme) => {
 
 export default function TitleNar() {
   const classes = useStyles()
-  const captureImages = React.useRef(null)
+  const bg = React.useRef(null)
+
+  React.useEffect(() => {
+    document.addEventListener('scroll', () => {
+      if (bg) {
+        bg.current.style.transform = `translate(0, -${Math.min(document.documentElement.scrollTop, 190)}px)`
+      }
+    })
+  }, [])
 
   return <div>
     <div className={classes.title}>
@@ -220,12 +226,12 @@ export default function TitleNar() {
           <Button href="/feedback">反馈</Button>
           <Button>历史版本</Button>
           <Button target="_blank" href="http://git.thunisoft.com/zhangzhenqing/thunisoftvpn">
-            <GitLabIcon color="#fff" />
+            <GitLabIcon color="inherit" />
           </Button>
         </div>
       </Container>
     </div>
-    <img className={classes.bg} width="100%" src="/bg.jpg"></img>
+    <img className={classes.bg} ref={bg} width="100%" src="/bg.jpg"></img>
     <div className={classes.content}>
       <div className={classes.download}>
         <div>轻松远程，一键连接</div>
@@ -285,7 +291,7 @@ export default function TitleNar() {
             </div>
           </div>
         </div>
-        <div id="captureImages" className={classes.captureBody} ref={captureImages}>
+        <div className={classes.captureBody}>
           <img className={classes.capture4} src="/capture4.png" alt="" height="500"></img>
           <img className={classes.capture3} src="/capture3.png" alt="" height="500"></img>
           <img className={classes.capture2} src="/capture2.png" alt="" height="500"></img>
@@ -303,9 +309,6 @@ export default function TitleNar() {
       </Container>
     </div>
     <div className={classes.footer}>
-      <div style={{ textAlign: 'left' }}>
-        
-      </div>
       ©2001-2014 Thunisoft 华宇（大连）信息服务有限公司 版权所有 华宇（大连）
     </div>
   </div>
