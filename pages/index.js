@@ -211,7 +211,7 @@ export default function TitleNar() {
   React.useEffect(() => {
     document.addEventListener('scroll', () => {
       if (bg) {
-        bg.current.style.transform = `translate(0, -${Math.min(document.documentElement.scrollTop, 190)}px)`
+        bg.current.style.transform = `translate(0, -${Math.min(document.documentElement.scrollTop / 2.5, 190)}px)`
       }
     })
   }, [])
@@ -222,9 +222,9 @@ export default function TitleNar() {
         <label className={classes.leftTitle}>华宇畅联&nbsp;&nbsp;VPN</label>
         <div>
           <Button donwload="华宇畅联.exe" href="/download/thunisoft-vpn-v1.0.0.exe">下载</Button>
-          <Button>寻找支持</Button>
+          <Button href="/support">寻找支持</Button>
           <Button href="/feedback">反馈</Button>
-          <Button>历史版本</Button>
+          <Button href="/history/release">历史版本</Button>
           <Button target="_blank" href="http://git.thunisoft.com/zhangzhenqing/thunisoftvpn">
             <GitLabIcon color="inherit" />
           </Button>

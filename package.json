@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "clsx": "latest",
     "next": "latest",
     "prop-types": "latest",
@@ -14,7 +15,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 10011",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "eslintConfig": {
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.5.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.2.0",
