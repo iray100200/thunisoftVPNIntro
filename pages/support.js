@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import Module from '../src/Module'
 import Box from '@material-ui/core/Box'
 
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles(() => {
   return {
     content: {
       color: '#333'
@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => {
       overflow: 'hidden',
       fontWeiht: 300,
       padding: '4px 40px',
-      fontSize: '1.2em'
+      fontSize: '1.2em',
+      lineHeight: 1.5
     }
   }
 })
@@ -79,6 +80,10 @@ export default function TitleNar() {
         </div>
       </div>
       <div className={classes.right}>
+        <div>
+          VPN显示连接正常，但是无法连网： 退出程序后，选择以管理员身份重新运行程序（windows执行添加路由映射需要管理员权限）
+        </div>
+        <br />
         <Link target="_blank" href="http://git.thunisoft.com/zhangzhenqing/thunisoftvpn" color="primary">立即加入开发人员行列</Link>
         <br />
         <br />

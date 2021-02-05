@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content={theme.palette.primary.main} />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            href="http://localhost:10011/styles/font.css"
           />
           <link rel="stylesheet" href="/styles/global.css"></link>
         </Head>

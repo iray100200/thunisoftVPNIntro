@@ -191,7 +191,9 @@ const useStyles = makeStyles((theme) => {
       color: '#fff',
       fontWeight: '300',
       lineHeight: '64px',
-      background: '#333'
+      background: 'transparent',
+      '-webkitBackgroundClip': 'text',
+      backgroundImage: 'linear-gradient(#999, #000)'
     },
     img: {
       margin: 4
@@ -231,13 +233,13 @@ export default function TitleNar() {
         </div>
       </Container>
     </div>
-    <img className={classes.bg} ref={bg} width="100%" src="/bg.jpg"></img>
+    <img className={classes.bg} alt="" ref={bg} width="100%" src="/bg.jpg"></img>
     <div className={classes.content}>
       <div className={classes.download}>
         <div>轻松远程，一键连接</div>
         <div className={classes.secondary}>安全、便捷、跨平台</div>
         <Button href="/download/thunisoft-vpn-v1.0.0.exe" donwload="华宇畅联.exe" className={classes.downloadBtn} variant="outlined" color="primary" disableElevation fullWidth type="secondary" size="large">
-          <img className={classes.logo} src="/logo.png"></img>
+          <img className={classes.logo} alt="" src="/logo.png"></img>
           一键下载，即刻使用
         </Button>
         <div className={classes.poweredBy}>Powered by thunisoft.</div>
@@ -309,7 +311,15 @@ export default function TitleNar() {
       </Container>
     </div>
     <div className={classes.footer}>
-      ©2001-2014 Thunisoft 华宇（大连）信息服务有限公司 版权所有 华宇（大连）
+      <svg width="600" height="80">
+        <defs>
+          <linearGradient id="copyright">
+            <stop offset="5%"  stop-color="gold" />
+            <stop offset="95%" stop-color="red" />
+          </linearGradient>
+        </defs>
+        <text x="50%" y="50%" fill="url(#copyright)">©2001-2014 Thunisoft 华宇（大连）信息服务有限公司 版权所有 华宇（大连）</text>
+      </svg>
     </div>
   </div>
 }
