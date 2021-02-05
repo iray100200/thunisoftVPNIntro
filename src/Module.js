@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import SvgIcon from '@material-ui/core/SvgIcon'
 import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
+import packageJson from '../package.json'
 
 function GitLabIcon(props) {
   return (
@@ -67,7 +68,7 @@ export default function Module(props) {
         <Link underline="none" className={classes.leftTitle} href="/" color="inherit">华宇畅联&nbsp;&nbsp;VPN</Link>
         <div>
           <Button href="/">首页</Button>
-          <Button donwload="华宇畅联.exe" href="/download/thunisoft-vpn-v1.0.0.exe">下载</Button>
+          <Button donwload="华宇畅联.exe" href={`/download/thunisoft-vpn-v${packageJson.version}.exe`}>下载</Button>
           <Button href="/support">寻找支持</Button>
           <Button href="/feedback">反馈</Button>
           <Button href="/history/release">历史版本</Button>

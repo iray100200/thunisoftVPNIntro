@@ -6,6 +6,7 @@ import MemoryIcon from '@material-ui/icons/Memory'
 import Container from '@material-ui/core/Container'
 import { makeStyles } from '@material-ui/core/styles'
 import SvgIcon from '@material-ui/core/SvgIcon'
+import packageJson from './package.json'
 
 function GitLabIcon(props) {
   return (
@@ -15,12 +16,13 @@ function GitLabIcon(props) {
   )
 }
 
+const downloadLink = `/download/thunisoft-vpn-v${packageJson.version}.exe`
+
 const useStyles = makeStyles((theme) => {
   return {
     title: {
       height: 70,
       backgroundColor: 'transparent',
-      color: theme.palette.grey[100],
       fontSize: 24,
       lineHeight: '64px',
       position: 'relative',
@@ -223,7 +225,7 @@ export default function TitleNar() {
       <Container className={classes.titleContainer}>
         <label className={classes.leftTitle}>华宇畅联&nbsp;&nbsp;VPN</label>
         <div>
-          <Button donwload="华宇畅联.exe" href="/download/thunisoft-vpn-v1.0.0.exe">下载</Button>
+          <Button donwload="华宇畅联.exe" href={downloadLink}>下载</Button>
           <Button href="/support">寻找支持</Button>
           <Button href="/feedback">反馈</Button>
           <Button href="/history/release">历史版本</Button>
@@ -238,7 +240,7 @@ export default function TitleNar() {
       <div className={classes.download}>
         <div>轻松远程，一键连接</div>
         <div className={classes.secondary}>安全、便捷、跨平台</div>
-        <Button href="/download/thunisoft-vpn-v1.0.0.exe" donwload="华宇畅联.exe" className={classes.downloadBtn} variant="outlined" color="primary" disableElevation fullWidth type="secondary" size="large">
+        <Button href={downloadLink} donwload="华宇畅联.exe" className={classes.downloadBtn} variant="outlined" color="primary" disableElevation fullWidth type="secondary" size="large">
           <img className={classes.logo} alt="" src="/logo.png"></img>
           一键下载，即刻使用
         </Button>

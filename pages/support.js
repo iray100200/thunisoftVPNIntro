@@ -81,7 +81,7 @@ export default function TitleNar() {
       </div>
       <div className={classes.right}>
         <div>
-          VPN显示连接正常，但是无法连网： 退出程序后，选择以管理员身份重新运行程序（windows执行添加路由映射需要管理员权限）
+          VPN无法连接成功（add route error）： 退出程序后，选择以管理员身份重新运行程序（windows执行添加路由映射需要管理员权限）
         </div>
         <br />
         <Link target="_blank" href="http://git.thunisoft.com/zhangzhenqing/thunisoftvpn" color="primary">立即加入开发人员行列</Link>
